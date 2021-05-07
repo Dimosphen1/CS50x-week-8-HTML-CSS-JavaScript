@@ -1,3 +1,3 @@
-djnago
+django
 gunicorn
 whitenoise
