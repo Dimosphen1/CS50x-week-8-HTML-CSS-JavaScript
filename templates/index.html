@@ -1,0 +1,101 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- Navbar CSS -->
+    <link href="{% static 'pages/styles.css' %}" rel="stylesheet" />
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav class="nav" style="z-index: 2">
+        <div class="container">
+            <div class="logo">
+                <a href="https://cs50.harvard.edu/x/2021/psets/8/homepage/">CS50x Week 8</a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'change' %}">Change</a></li>
+                    <li><a href="{% url 'search' %}">Search</a></li>
+                    <li><a href="{% url 'explore' %}">Explore</a></li>
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
+    <svg class="arrows" style="z-index: 1">
+              <path class="a1" d="M0 0 L30 32 L60 0"></path>
+              <path class="a2" d="M0 20 L30 52 L60 20"></path>
+              <path class="a3" d="M0 40 L30 72 L60 40"></path>
+    </svg>
+
+    <section class="home">
+    </section>
+    <div style="height: 530px">
+        <!-- just to make scrolling effect possible -->
+        <br>
+        <br>
+			<h2 class="myH2">Hello to everyone!</h2>
+			<br>
+			<br>
+			<p class="myP">My name is Dmytro, and this is a webpage dedicated to the CS50x Problem Set 8. Here you can find interactives that interest me the most. By the way, I like to experience new things;)</p>
+			<br>
+			<p class="myP">You can do here the following:</p>
+			<ul class="myUL">
+			    <li>Change outstanding day/night scenes on the <b><i>Change</i></b> page;</li>
+			    <li>Search for something engaging on the <b><i>Search</i></b> page;</li>
+			    <li>And explore the interactive map* on the <b><i>Explore</i></b> page.</li>
+			    <br>
+			    <p style="font-size: 13px">* Map works in the "for development purposes only" mode</p>
+			</ul>
+			<br>
+			<br>
+			<p class="myP" style="font-size: 30px">Enjoy!</p>
+			<p class="myP" style="font-size: 15px">Made by Dimosphen1</p>
+			<br>
+			<br>
+    </div>
+
+<!-- Jquery needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+<!-- Function used to shrink nav bar removing paddings and adding black background -->
+    <script>
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+
+        $('.navTrigger').click(function () {
+            $(this).toggleClass('active');
+            console.log("Clicked menu");
+            $("#mainListDiv").toggleClass("show_list");
+            $("#mainListDiv").fadeIn();
+
+        });
+    </script>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+  </body>
+</html>
